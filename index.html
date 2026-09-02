@@ -1,0 +1,2014 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Haven | Online Book Store</title>
+    <meta name="description" content="Discover books across fiction, business, technology, education, self-development and more. Order easily through WhatsApp.">
+    
+    <meta property="og:title" content="Book Haven | Online Book Store">
+    <meta property="og:description" content="Discover books across fiction, business, technology, education, self-development and more. Order easily through WhatsApp.">
+    <meta property="og:type" content="website">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-cream: #FDFBF7;
+            --bg-card: #FFFFFF;
+            --text-dark: #1A1818;
+            --text-muted: #66605B;
+            --brown-primary: #3C2A21;
+            --navy-deep: #0F172A;
+            --gold-accent: #D4AF37;
+            --gold-light: #F9F5E8;
+            --border-color: #E8E2D9;
+            --shadow-sm: 0 2px 8px rgba(60, 42, 33, 0.04);
+            --shadow-md: 0 8px 24px rgba(60, 42, 33, 0.08);
+            --shadow-lg: 0 16px 32px rgba(60, 42, 33, 0.12);
+            --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            --radius-sm: 6px;
+            --radius-md: 12px;
+            --radius-lg: 20px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-cream);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, .font-serif {
+            font-family: 'Cinzel', serif;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Utility Classes */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 650px;
+            margin: 0 auto 48px;
+        }
+
+        .section-subtitle {
+            color: var(--gold-accent);
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .section-title {
+            font-size: 2.25rem;
+            color: var(--brown-primary);
+            margin-bottom: 12px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 28px;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 1px solid transparent;
+            font-size: 0.95rem;
+        }
+
+        .btn-primary {
+            background-color: var(--brown-primary);
+            color: #FFF;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--navy-deep);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            border-color: var(--brown-primary);
+            color: var(--brown-primary);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--brown-primary);
+            color: #FFF;
+        }
+
+        .btn-whatsapp {
+            background-color: #25D366;
+            color: #FFF;
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #128C7E;
+            color: #FFF;
+            transform: translateY(-2px);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .badge-demo {
+            background-color: var(--gold-light);
+            color: var(--brown-primary);
+            border: 1px solid var(--gold-accent);
+        }
+
+        .badge-discount {
+            background: #E53E3E;
+            color: white;
+        }
+
+        /* Navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            background: rgba(253, 251, 247, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--brown-primary);
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: var(--text-dark);
+            transition: var(--transition);
+            font-size: 0.95rem;
+        }
+
+        .nav-link:hover {
+            color: var(--gold-accent);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .icon-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            padding: 8px;
+            color: var(--brown-primary);
+        }
+
+        .cart-badge {
+            position: absolute;
+            top: 2px;
+            right: 2px;
+            background: var(--gold-accent);
+            color: var(--navy-deep);
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+        }
+
+        .hamburger span {
+            width: 24px;
+            height: 2px;
+            background-color: var(--brown-primary);
+            transition: var(--transition);
+        }
+
+        /* Hero */
+        .hero {
+            padding: 60px 0;
+            position: relative;
+            background: linear-gradient(180deg, var(--bg-cream) 0%, rgba(249, 245, 232, 0.5) 100%);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .hero-title {
+            font-size: 3.25rem;
+            line-height: 1.15;
+            color: var(--brown-primary);
+            margin-bottom: 20px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 32px;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 36px;
+        }
+
+        .hero-badges {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .hero-badge-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--brown-primary);
+            background: rgba(212, 175, 55, 0.15);
+            padding: 6px 12px;
+            border-radius: 20px;
+        }
+
+        .hero-image-composition {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+        }
+
+        .hero-book-card {
+            width: 180px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition);
+            transform: rotate(-4deg);
+        }
+
+        .hero-book-card:nth-child(2) {
+            transform: rotate(2deg) translateY(-20px);
+        }
+
+        .hero-book-card:nth-child(3) {
+            transform: rotate(6deg);
+        }
+
+        /* Search Section */
+        .search-section {
+            margin-top: -30px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .search-box {
+            background: var(--bg-card);
+            padding: 12px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-md);
+            display: flex;
+            gap: 12px;
+            max-width: 800px;
+            margin: 0 auto;
+            border: 1px solid var(--border-color);
+        }
+
+        .search-input {
+            flex: 1;
+            border: none;
+            outline: none;
+            padding: 0 16px;
+            font-size: 1rem;
+            background: transparent;
+        }
+
+        /* Categories Section */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .category-card {
+            background: var(--bg-card);
+            padding: 24px;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-color);
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .category-card:hover {
+            border-color: var(--gold-accent);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .category-icon {
+            font-size: 2rem;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .category-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+            color: var(--brown-primary);
+        }
+
+        .category-count {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* Marketplace & Filters */
+        .marketplace-layout {
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            gap: 32px;
+        }
+
+        .filter-sidebar {
+            background: var(--bg-card);
+            padding: 24px;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-color);
+            height: fit-content;
+        }
+
+        .filter-group {
+            margin-bottom: 24px;
+        }
+
+        .filter-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .filter-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--brown-primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .filter-options {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .filter-btn {
+            background: none;
+            border: none;
+            text-align: left;
+            padding: 6px 0;
+            cursor: pointer;
+            color: var(--text-muted);
+            transition: var(--transition);
+            font-size: 0.9rem;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            color: var(--gold-accent);
+            font-weight: 600;
+        }
+
+        .books-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 24px;
+        }
+
+        .book-card {
+            background: var(--bg-card);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .book-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .book-cover-wrap {
+            position: relative;
+            padding-top: 135%;
+            background: #F0ECE1;
+            overflow: hidden;
+        }
+
+        .book-cover {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .book-card:hover .book-cover {
+            transform: scale(1.05);
+        }
+
+        .book-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 2;
+        }
+
+        .book-details {
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .book-category {
+            font-size: 0.75rem;
+            color: var(--gold-accent);
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .book-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--brown-primary);
+            margin-bottom: 4px;
+            line-height: 1.3;
+        }
+
+        .book-author {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        .book-rating {
+            font-size: 0.8rem;
+            color: #F59E0B;
+            margin-bottom: 12px;
+        }
+
+        .book-price-wrap {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+            margin-top: auto;
+            margin-bottom: 12px;
+        }
+
+        .book-price {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--navy-deep);
+        }
+
+        .book-old-price {
+            text-decoration: line-through;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        .book-actions {
+            display: flex;
+            gap: 6px;
+        }
+
+        .book-actions .btn {
+            padding: 8px;
+            font-size: 0.8rem;
+            flex: 1;
+        }
+
+        /* Book of the month */
+        .botm-card {
+            background: var(--navy-deep);
+            color: #FFF;
+            border-radius: var(--radius-lg);
+            padding: 48px;
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .botm-img {
+            border-radius: var(--radius-md);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .botm-content h3 {
+            color: var(--gold-accent);
+            margin-bottom: 8px;
+        }
+
+        .botm-title {
+            font-size: 2.25rem;
+            margin-bottom: 12px;
+            color: #FFF;
+        }
+
+        .botm-author {
+            font-size: 1.1rem;
+            color: #E2E8F0;
+            margin-bottom: 16px;
+        }
+
+        .botm-desc {
+            color: #94A3B8;
+            margin-bottom: 24px;
+        }
+
+        .botm-highlights {
+            display: flex;
+            gap: 24px;
+            margin-bottom: 24px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 16px;
+        }
+
+        /* Features */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            padding: 24px;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-color);
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+
+        .feature-icon {
+            background: var(--gold-light);
+            color: var(--brown-primary);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        /* Timeline / How to Order */
+        .timeline {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 24px;
+            position: relative;
+        }
+
+        .timeline-step {
+            background: var(--bg-card);
+            padding: 24px;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-color);
+            position: relative;
+        }
+
+        .step-number {
+            font-family: 'Cinzel', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--gold-accent);
+            margin-bottom: 8px;
+        }
+
+        /* Reviews */
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .review-card {
+            background: var(--bg-card);
+            padding: 24px;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-color);
+            position: relative;
+        }
+
+        /* Gallery */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 16px;
+        }
+
+        .gallery-item {
+            position: relative;
+            padding-top: 130%;
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+
+        /* FAQ Accordion */
+        .faq-accordion {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .faq-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+        }
+
+        .faq-header {
+            padding: 20px;
+            width: 100%;
+            text-align: left;
+            background: none;
+            border: none;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--brown-primary);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-body {
+            padding: 0 20px 20px;
+            display: none;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .faq-item.active .faq-body {
+            display: block;
+        }
+
+        /* Contact & Forms */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+        }
+
+        .contact-card {
+            background: var(--bg-card);
+            padding: 32px;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-color);
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-sm);
+            outline: none;
+            font-family: inherit;
+        }
+
+        .form-control:focus {
+            border-color: var(--gold-accent);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--navy-deep);
+            color: #FFF;
+            padding: 60px 0 20px;
+            margin-top: 80px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            color: #FFF;
+            font-weight: 700;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .footer-text {
+            color: #94A3B8;
+            font-size: 0.9rem;
+            margin-bottom: 16px;
+        }
+
+        .footer-title {
+            color: var(--gold-accent);
+            font-size: 1rem;
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .footer-links a {
+            color: #94A3B8;
+            transition: var(--transition);
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: #FFF;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            text-align: center;
+            color: #94A3B8;
+            font-size: 0.85rem;
+        }
+
+        /* Modals & Slideouts */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(4px);
+            z-index: 2000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: var(--bg-card);
+            border-radius: var(--radius-md);
+            max-width: 700px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            padding: 32px;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-muted);
+        }
+
+        /* Cart Drawer */
+        .cart-drawer {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 100%;
+            max-width: 400px;
+            height: 100%;
+            background: var(--bg-card);
+            box-shadow: var(--shadow-lg);
+            z-index: 2000;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cart-drawer.active {
+            right: 0;
+        }
+
+        .cart-header {
+            padding: 20px;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cart-items {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .cart-item {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 12px;
+        }
+
+        .cart-item-img {
+            width: 50px;
+            height: 70px;
+            object-fit: cover;
+            border-radius: var(--radius-sm);
+        }
+
+        .cart-item-info {
+            flex: 1;
+        }
+
+        .cart-footer {
+            padding: 20px;
+            border-top: 1px solid var(--border-color);
+            background: var(--bg-cream);
+        }
+
+        /* Lightbox */
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 3000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox-img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: var(--radius-sm);
+        }
+
+        /* Floating Scroll to Top */
+        .scroll-top {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: var(--brown-primary);
+            color: #FFF;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border: none;
+            box-shadow: var(--shadow-md);
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 999;
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero-grid, .botm-card, .contact-grid, .marketplace-layout {
+                grid-template-columns: 1fr;
+            }
+            .hero-image-composition {
+                margin-top: 30px;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .filter-sidebar {
+                margin-bottom: 24px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: var(--bg-cream);
+                flex-direction: column;
+                padding: 40px;
+                transition: var(--transition);
+            }
+            .nav-links.active {
+                left: 0;
+            }
+            .hamburger {
+                display: flex;
+            }
+            .hero-title {
+                font-size: 2.25rem;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            .botm-card {
+                padding: 24px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-btns {
+                flex-direction: column;
+            }
+            .books-grid {
+                grid-template-columns: 1fr;
+            }
+            .search-box {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                BOOK HAVEN
+            </a>
+            
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#books" class="nav-link">Books</a></li>
+                <li><a href="#categories" class="nav-link">Categories</a></li>
+                <li><a href="#bestsellers" class="nav-link">Bestsellers</a></li>
+                <li><a href="#new-arrivals" class="nav-link">New Arrivals</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <button class="icon-btn" onclick="scrollToSearch()" aria-label="Search">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                </button>
+                <button class="icon-btn" onclick="toggleCart()" aria-label="Cart">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                    <span class="cart-badge" id="cartCount">0</span>
+                </button>
+                <a href="#books" class="btn btn-primary" style="padding: 8px 16px; font-size: 0.85rem;">Shop Now</a>
+                <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Toggle Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <span class="section-subtitle">Welcome To Book Haven</span>
+                <h1 class="hero-title">Discover Your Next Great Read</h1>
+                <p class="hero-subtitle">Explore books that inspire, educate and entertain. Find your next favorite story today.</p>
+                <div class="hero-btns">
+                    <a href="#books" class="btn btn-primary">Explore Books</a>
+                    <a href="#books" class="btn btn-secondary">Shop Now</a>
+                </div>
+                <div class="hero-badges">
+                    <span class="hero-badge-item">✓ Quality Books</span>
+                    <span class="hero-badge-item">✓ Easy Ordering</span>
+                    <span class="hero-badge-item">✓ WhatsApp Support</span>
+                </div>
+            </div>
+            <div class="hero-image-composition">
+                <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=400&q=80" alt="Book Cover 1" class="hero-book-card">
+                <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=400&q=80" alt="Book Cover 2" class="hero-book-card">
+                <img src="https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&w=400&q=80" alt="Book Cover 3" class="hero-book-card">
+            </div>
+        </div>
+    </section>
+
+    <div class="container search-section">
+        <div class="search-box">
+            <input type="text" id="searchInput" class="search-input" placeholder="Search books, authors or categories..." oninput="handleSearch()">
+            <button class="btn btn-primary" onclick="handleSearch()">Search</button>
+        </div>
+    </div>
+
+    <section id="categories" class="section-padding">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Curated Collections</span>
+                <h2 class="section-title">Explore Our Categories</h2>
+            </div>
+            <div class="category-grid" id="categoryGrid">
+                </div>
+        </div>
+    </section>
+
+    <section id="books" class="section-padding" style="background: rgba(232, 226, 217, 0.2);">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Browse Selection</span>
+                <h2 class="section-title">Featured Books</h2>
+                <span class="badge badge-demo" style="margin-top: 8px;">Demo Store Data</span>
+            </div>
+
+            <div class="marketplace-layout">
+                <aside class="filter-sidebar">
+                    <div class="filter-group">
+                        <h4 class="filter-title">Category</h4>
+                        <div class="filter-options" id="categoryFilters">
+                            </div>
+                    </div>
+
+                    <div class="filter-group">
+                        <h4 class="filter-title">Price Range</h4>
+                        <div class="filter-options">
+                            <button class="filter-btn active" onclick="setPriceFilter('all', this)">All</button>
+                            <button class="filter-btn" onclick="setPriceFilter('under1000', this)">Under Rs. 1,000</button>
+                            <button class="filter-btn" onclick="setPriceFilter('1000to2000', this)">Rs. 1,000–2,000</button>
+                            <button class="filter-btn" onclick="setPriceFilter('above2000', this)">Rs. 2,000+</button>
+                        </div>
+                    </div>
+
+                    <div class="filter-group">
+                        <h4 class="filter-title">Rating</h4>
+                        <div class="filter-options">
+                            <button class="filter-btn active" onclick="setRatingFilter('all', this)">All Ratings</button>
+                            <button class="filter-btn" onclick="setRatingFilter(4.5, this)">4.5+ Stars</button>
+                            <button class="filter-btn" onclick="setRatingFilter(4.0, this)">4.0+ Stars</button>
+                        </div>
+                    </div>
+                </aside>
+
+                <main>
+                    <div class="books-header">
+                        <span id="resultsCount" style="font-size: 0.9rem; color: var(--text-muted);">Showing all books</span>
+                        <select id="sortSelect" onchange="handleSort()" style="padding: 8px; border-radius: var(--radius-sm); border: 1px solid var(--border-color);">
+                            <option value="featured">Sort by: Featured</option>
+                            <option value="low-high">Price: Low to High</option>
+                            <option value="high-low">Price: High to Low</option>
+                            <option value="rating">Highest Rated</option>
+                        </select>
+                    </div>
+
+                    <div class="books-grid" id="featuredBooksGrid">
+                        </div>
+                </main>
+            </div>
+        </div>
+    </section>
+
+    <section id="bestsellers" class="section-padding">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Top Reads</span>
+                <h2 class="section-title">Bestsellers</h2>
+            </div>
+            <div class="books-grid" id="bestsellersGrid">
+                </div>
+        </div>
+    </section>
+
+    <section id="new-arrivals" class="section-padding" style="background: var(--gold-light);">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Fresh Additions</span>
+                <h2 class="section-title">New Arrivals</h2>
+            </div>
+            <div class="books-grid" id="newArrivalsGrid">
+                </div>
+        </div>
+    </section>
+
+    <section class="section-padding">
+        <div class="container">
+            <div class="botm-card">
+                <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=600&q=80" alt="Book of the Month" class="botm-img">
+                <div class="botm-content">
+                    <h3>FEATURED SELECTION</h3>
+                    <h2 class="botm-title">The Art of Learning</h2>
+                    <p class="botm-author">By Josh Waitzkin</p>
+                    <p class="botm-desc">A remarkable insight into the science of meta-learning and mastering complex skills at an elite level. Ideal for professionals and students alike.</p>
+                    <div class="botm-highlights">
+                        <div>
+                            <strong style="display:block; color:var(--gold-accent);">Format</strong>
+                            <span style="font-size:0.85rem;">Hardcover</span>
+                        </div>
+                        <div>
+                            <strong style="display:block; color:var(--gold-accent);">Pages</strong>
+                            <span style="font-size:0.85rem;">288 Pages</span>
+                        </div>
+                        <div>
+                            <strong style="display:block; color:var(--gold-accent);">Language</strong>
+                            <span style="font-size:0.85rem;">English</span>
+                        </div>
+                    </div>
+                    <div style="display:flex; gap:16px; align-items:center;">
+                        <span style="font-size: 1.5rem; font-weight:700; color:#FFF;">Rs. 1,850</span>
+                        <button class="btn btn-primary" onclick="addToCart(1)">Add To Cart</button>
+                        <a href="https://wa.me/923472842874?text=Hello%20Book%20Haven,%20I%20would%20like%20to%20order%20The%20Art%20of%20Learning." target="_blank" class="btn btn-whatsapp">Order via WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding" style="background: rgba(232, 226, 217, 0.3);">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Our Promise</span>
+                <h2 class="section-title">Why Choose Us</h2>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">✓</div>
+                    <div>
+                        <h4 style="margin-bottom:4px;">Carefully Selected Books</h4>
+                        <p style="font-size:0.85rem; color:var(--text-muted);">Curated list of impactful literary works.</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">✓</div>
+                    <div>
+                        <h4 style="margin-bottom:4px;">Easy Ordering</h4>
+                        <p style="font-size:0.85rem; color:var(--text-muted);">Seamless frontend cart experience.</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">✓</div>
+                    <div>
+                        <h4 style="margin-bottom:4px;">WhatsApp Support</h4>
+                        <p style="font-size:0.85rem; color:var(--text-muted);">Direct instant communication via chat.</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">✓</div>
+                    <div>
+                        <h4 style="margin-bottom:4px;">Secure Packaging</h4>
+                        <p style="font-size:0.85rem; color:var(--text-muted);">Ensuring books arrive in perfect state.</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">✓</div>
+                    <div>
+                        <h4 style="margin-bottom:4px;">Convenient Delivery</h4>
+                        <p style="font-size:0.85rem; color:var(--text-muted);">Prompt logistics to your doorstep.</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">✓</div>
+                    <div>
+                        <h4 style="margin-bottom:4px;">Customer-Friendly Service</h4>
+                        <p style="font-size:0.85rem; color:var(--text-muted);">Helpful assistance for all queries.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Simple Steps</span>
+                <h2 class="section-title">How To Order</h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-step">
+                    <div class="step-number">01</div>
+                    <h4>Choose Your Book</h4>
+                    <p style="font-size:0.85rem; color:var(--text-muted); margin-top:4px;">Explore our catalog and find titles you wish to read.</p>
+                </div>
+                <div class="timeline-step">
+                    <div class="step-number">02</div>
+                    <h4>Add To Cart</h4>
+                    <p style="font-size:0.85rem; color:var(--text-muted); margin-top:4px;">Select copies and build your personal order list.</p>
+                </div>
+                <div class="timeline-step">
+                    <div class="step-number">03</div>
+                    <h4>Enter Your Details</h4>
+                    <p style="font-size:0.85rem; color:var(--text-muted); margin-top:4px;">Provide recipient details in our straightforward layout.</p>
+                </div>
+                <div class="timeline-step">
+                    <div class="step-number">04</div>
+                    <h4>Confirm Through WhatsApp</h4>
+                    <p style="font-size:0.85rem; color:var(--text-muted); margin-top:4px;">Send auto-generated summary directly to complete.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding" style="background: var(--bg-cream);">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Feedback</span>
+                <h2 class="section-title">Customer Reviews</h2>
+                <span class="badge badge-demo" style="margin-top: 8px;">SAMPLE CUSTOMER REVIEWS</span>
+            </div>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div style="color:#F59E0B; margin-bottom:8px;">★★★★★</div>
+                    <p style="font-size:0.9rem; margin-bottom:12px;">"Extremely fast response over WhatsApp and excellent book condition. Will definitely purchase again."</p>
+                    <strong style="display:block; font-size:0.85rem;">— Ahmed K.</strong>
+                    <span style="font-size:0.75rem; color:var(--text-muted);">Purchased: Modern Business Strategy</span>
+                </div>
+                <div class="review-card">
+                    <div style="color:#F59E0B; margin-bottom:8px;">★★★★★</div>
+                    <p style="font-size:0.9rem; margin-bottom:12px;">"Great selection of literature and seamless order experience without unnecessary signups."</p>
+                    <strong style="display:block; font-size:0.85rem;">— Sara M.</strong>
+                    <span style="font-size:0.75rem; color:var(--text-muted);">Purchased: The Creative Mind</span>
+                </div>
+                <div class="review-card">
+                    <div style="color:#F59E0B; margin-bottom:8px;">★★★★☆</div>
+                    <p style="font-size:0.9rem; margin-bottom:12px;">"Smooth checkout process via WhatsApp. Clear communication throughout the delivery."</p>
+                    <strong style="display:block; font-size:0.85rem;">— Usman R.</strong>
+                    <span style="font-size:0.75rem; color:var(--text-muted);">Purchased: Think Better</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Visual Showcase</span>
+                <h2 class="section-title">Book Gallery</h2>
+            </div>
+            <div class="gallery-grid" id="galleryGrid">
+                </div>
+        </div>
+    </section>
+
+    <section id="about" class="section-padding" style="background: var(--navy-deep); color: #FFF;">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle" style="color:var(--gold-accent);">Our Philosophy</span>
+                <h2 class="section-title" style="color:#FFF;">Books That Bring Ideas To Life</h2>
+            </div>
+            <div style="max-width: 800px; margin: 0 auto; text-align: center; color: #94A3B8;">
+                <p style="margin-bottom: 16px; font-size: 1.05rem;">Book Haven is a modern bookstore created for readers who love discovering new ideas, stories and knowledge.</p>
+                <p>We focus on providing a wide selection across multiple disciplines, streamlined online browsing, and direct, personalized WhatsApp ordering to make acquiring quality literature as convenient as possible.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Questions & Answers</span>
+                <h2 class="section-title">Frequently Asked Questions</h2>
+            </div>
+            <div class="faq-accordion" id="faqAccordion">
+                </div>
+        </div>
+    </section>
+
+    <section class="section-padding" style="background: var(--gold-light);">
+        <div class="container" style="text-align: center;">
+            <div class="section-header">
+                <span class="section-subtitle">Store Location</span>
+                <h2 class="section-title">Visit Our Store</h2>
+            </div>
+            <p style="margin-bottom: 16px; font-weight: 600;">[ADD VERIFIED STORE ADDRESS]</p>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Please contact via phone or WhatsApp prior to visiting for stock availability verification.</p>
+        </div>
+    </section>
+
+    <section id="contact" class="section-padding">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Get In Touch</span>
+                <h2 class="section-title">Need Help Finding A Book?</h2>
+                <p style="color: var(--text-muted);">Have a question about a book or your order? Contact us directly.</p>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <h3 style="margin-bottom: 16px; color: var(--brown-primary);">Direct Contact</h3>
+                    <p style="margin-bottom: 8px;"><strong>Phone:</strong> 03472842874</p>
+                    <p style="margin-bottom: 8px;"><strong>Email:</strong> info@bookhaven.com</p>
+                    <p style="margin-bottom: 24px;"><strong>WhatsApp:</strong> 03472842874</p>
+                    <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                        <a href="tel:03472842874" class="btn btn-primary">Call Now</a>
+                        <a href="https://wa.me/923472842874" target="_blank" class="btn btn-whatsapp">Chat on WhatsApp</a>
+                    </div>
+                </div>
+
+                <div class="contact-card">
+                    <form id="contactForm" onsubmit="handleContactSubmit(event)">
+                        <div class="form-group">
+                            <label class="form-label">Name</label>
+                            <input type="text" id="contactName" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Phone</label>
+                            <input type="tel" id="contactPhone" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Email</label>
+                            <input type="email" id="contactEmail" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Message</label>
+                            <textarea id="contactMessage" class="form-control" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                    </form>
+                    <div id="contactSuccess" style="display: none; color: green; margin-top: 12px; font-weight: 600;">
+                        Thank you! We'll get back to you soon.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <span class="footer-logo">BOOK HAVEN</span>
+                    <p class="footer-text">Discover Your Next Great Read.</p>
+                </div>
+                <div>
+                    <h4 class="footer-title">Quick Links</h4>
+                    <div class="footer-links">
+                        <a href="#home">Home</a>
+                        <a href="#books">Books</a>
+                        <a href="#categories">Categories</a>
+                        <a href="#bestsellers">Bestsellers</a>
+                        <a href="#new-arrivals">New Arrivals</a>
+                        <a href="#about">About</a>
+                        <a href="#contact">Contact</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-title">Customer Support</h4>
+                    <div class="footer-links">
+                        <a href="#faqAccordion">FAQ</a>
+                        <a href="#contact">Order Information</a>
+                        <a href="#contact">Delivery</a>
+                        <a href="#contact">Contact Us</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-title">Contact</h4>
+                    <p style="color: #94A3B8; font-size: 0.9rem; margin-bottom: 8px;">Phone: 03472842874</p>
+                    <p style="color: #94A3B8; font-size: 0.9rem; margin-bottom: 8px;">Email: info@bookhaven.com</p>
+                    <a href="https://wa.me/923472842874" target="_blank" class="btn btn-whatsapp" style="padding: 6px 12px; font-size: 0.8rem; margin-top: 8px;">WhatsApp Order</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Book Haven. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="modal" id="bookModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('bookModal')">&times;</button>
+            <div id="modalBody">
+                </div>
+        </div>
+    </div>
+
+    <div class="modal" id="checkoutModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('checkoutModal')">&times;</button>
+            <h3 style="margin-bottom: 16px; color: var(--brown-primary);">Checkout Order</h3>
+            <form id="checkoutForm" onsubmit="handleCheckout(event)">
+                <div class="form-group">
+                    <label class="form-label">Full Name</label>
+                    <input type="text" id="custName" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Phone Number</label>
+                    <input type="tel" id="custPhone" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Address</label>
+                    <input type="text" id="custAddress" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">City</label>
+                    <input type="text" id="custCity" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Order Notes</label>
+                    <textarea id="custNotes" class="form-control"></textarea>
+                </div>
+
+                <div style="background: var(--bg-cream); padding: 16px; border-radius: var(--radius-sm); margin-bottom: 16px;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 4px;"><span>Subtotal:</span><span id="checkoutSubtotal">Rs. 0</span></div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 4px;"><span>Delivery:</span><span>Rs. 200</span></div>
+                    <hr style="margin: 8px 0; border: none; border-top: 1px solid var(--border-color);">
+                    <div style="display: flex; justify-content: space-between; font-weight: 700;"><span>Total:</span><span id="checkoutTotal">Rs. 0</span></div>
+                </div>
+
+                <button type="submit" class="btn btn-whatsapp" style="width: 100%;">Place Order on WhatsApp</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="cart-header">
+            <h3>Your Shopping Cart</h3>
+            <button class="modal-close" onclick="toggleCart()">&times;</button>
+        </div>
+        <div class="cart-items" id="cartItemsContainer">
+            </div>
+        <div class="cart-footer">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                <span>Subtotal</span>
+                <strong id="cartSubtotal">Rs. 0</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 16px;">
+                <span>Delivery</span>
+                <strong>Rs. 200</strong>
+            </div>
+            <button class="btn btn-primary" style="width: 100%; margin-bottom: 8px;" onclick="openCheckout()">Proceed To Checkout</button>
+            <button class="btn btn-secondary" style="width: 100%; font-size: 0.8rem; padding: 6px;" onclick="clearCart()">Clear Cart</button>
+        </div>
+    </div>
+
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <img src="" id="lightboxImg" class="lightbox-img" alt="Enlarged view">
+    </div>
+
+    <button class="scroll-top" id="scrollTopBtn" onclick="scrollToTop()" aria-label="Scroll to top">↑</button>
+
+    <script>
+        /* Sample Books Data */
+        const booksData = [
+            { id: 1, title: "The Art of Learning", author: "Josh Waitzkin", category: "Self Development", price: 1850, oldPrice: 2200, rating: 4.8, img: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=400&q=80", isBestseller: true, isNew: false, pages: 288, language: "English", format: "Hardcover", publisher: "Free Press" },
+            { id: 2, title: "Modern Business Strategy", author: "Michael Porter", category: "Business", price: 2100, oldPrice: 2500, rating: 4.6, img: "https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=400&q=80", isBestseller: true, isNew: false, pages: 350, language: "English", format: "Paperback", publisher: "Harvard Business Review" },
+            { id: 3, title: "Think Better", author: "Tim Hurson", category: "Self Development", price: 1400, oldPrice: 1700, rating: 4.3, img: "https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=400&q=80", isBestseller: false, isNew: true, pages: 304, language: "English", format: "Paperback", publisher: "McGraw-Hill" },
+            { id: 4, title: "The Digital World", author: "Nicholas Negroponte", category: "Technology", price: 1950, oldPrice: 2300, rating: 4.5, img: "https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&w=400&q=80", isBestseller: false, isNew: true, pages: 272, language: "English", format: "Hardcover", publisher: "Vintage" },
+            { id: 5, title: "The Creative Mind", author: "Henri Bergson", category: "Fiction", price: 950, oldPrice: 1200, rating: 4.1, img: "https://images.unsplash.com/photo-1543002588-bfa74002ed7e?auto=format&fit=crop&w=400&q=80", isBestseller: true, isNew: false, pages: 220, language: "English", format: "Paperback", publisher: "Dover" },
+            { id: 6, title: "Start With Purpose", author: "Simon Sinek", category: "Business", price: 1650, oldPrice: 1900, rating: 4.9, img: "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=400&q=80", isBestseller: true, isNew: false, pages: 256, language: "English", format: "Hardcover", publisher: "Portfolio" },
+            { id: 7, title: "Stories That Inspire", author: "Various Authors", category: "Fiction", price: 850, oldPrice: 1000, rating: 4.2, img: "https://images.unsplash.com/photo-1495640388908-05fa85288e61?auto=format&fit=crop&w=400&q=80", isBestseller: false, isNew: true, pages: 180, language: "English", format: "Paperback", publisher: "Penguin" },
+            { id: 8, title: "Introduction to Programming", author: "John Zelle", category: "Technology", price: 2400, oldPrice: 2800, rating: 4.7, img: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=400&q=80", isBestseller: false, isNew: true, pages: 520, language: "English", format: "Paperback", publisher: "Franklin, Beedle" },
+            { id: 9, title: "The Power of Habits", author: "Charles Duhigg", category: "Self Development", price: 1750, oldPrice: 2000, rating: 4.8, img: "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&w=400&q=80", isBestseller: true, isNew: false, pages: 400, language: "English", format: "Paperback", publisher: "Random House" },
+            { id: 10, title: "Urdu Adab Collection", author: "Various Scholars", category: "Urdu", price: 1300, oldPrice: 1500, rating: 4.6, img: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=400&q=80", isBestseller: false, isNew: true, pages: 310, language: "Urdu", format: "Hardcover", publisher: "Literary Press" },
+            { id: 11, title: "The Young Explorer", author: "Elena Rostova", category: "Children", price: 750, oldPrice: 900, rating: 4.4, img: "https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=400&q=80", isBestseller: false, isNew: true, pages: 120, language: "English", format: "Paperback", publisher: "Kids Read" },
+            { id: 12, title: "Building Your Future", author: "Robert T.", category: "Education", price: 1150, oldPrice: 1400, rating: 4.0, img: "https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&w=400&q=80", isBestseller: true, isNew: false, pages: 240, language: "English", format: "Paperback", publisher: "EduPublish" }
+        ];
+
+        const categoriesData = [
+            { name: "Fiction", icon: "📚", count: 42 },
+            { name: "Business", icon: "💼", count: 28 },
+            { name: "Technology", icon: "💻", count: 35 },
+            { name: "Self Development", icon: "🌱", count: 50 },
+            { name: "Education", icon: "🎓", count: 19 },
+            { name: "Islamic", icon: "🕌", count: 24 },
+            { name: "Children", icon: "🎈", count: 15 },
+            { name: "History", icon: "🏛️", count: 22 },
+            { name: "Biography", icon: "✍️", count: 18 },
+            { name: "Urdu", icon: "📖", count: 30 }
+        ];
+
+        const faqData = [
+            { q: "How can I order a book?", a: "You can select your books, add them to your cart, click Proceed To Checkout, and complete your order through an auto-generated WhatsApp message." },
+            { q: "Can I order through WhatsApp?", a: "Yes, you can click the 'Order on WhatsApp' button on any book card or complete your entire cart process via WhatsApp." },
+            { q: "What payment methods are available?", a: "Payment details and cash on delivery or transfer options will be confirmed directly during WhatsApp communication." },
+            { q: "Do you offer delivery?", a: "Yes, delivery is offered nationwide. Standard shipping costs will be finalized via WhatsApp." },
+            { q: "How long does delivery take?", a: "Typically delivery takes between 2 to 5 business days depending on destination." },
+            { q: "Can I order multiple books?", a: "Yes, simply add multiple titles to your cart before proceeding to the WhatsApp checkout." },
+            { q: "Can I cancel an order?", a: "Order cancellations can be easily requested directly on WhatsApp prior to dispatch." },
+            { q: "How can I check book availability?", a: "You can message us directly via WhatsApp with the title to verify stock status instantly." },
+            { q: "Do you sell Urdu books?", a: "Yes, we feature classical and contemporary Urdu literature selections." },
+            { q: "Do you offer children's books?", a: "Yes, our catalog features curated children's literature." }
+        ];
+
+        // App State
+        let cart = JSON.parse(localStorage.getItem('bookHavenCart')) || [];
+        let selectedCategory = 'All';
+        let selectedPrice = 'all';
+        let selectedRating = 'all';
+
+        // Initialization
+        document.addEventListener('DOMContentLoaded', () => {
+            renderCategories();
+            renderCategoryFilters();
+            renderBooks();
+            renderBestsellers();
+            renderNewArrivals();
+            renderGallery();
+            renderFAQ();
+            updateCartUI();
+
+            window.addEventListener('scroll', handleScroll);
+        });
+
+        // Rendering Functions
+        function renderCategories() {
+            const container = document.getElementById('categoryGrid');
+            container.innerHTML = categoriesData.map(cat => `
+                <div class="category-card" onclick="filterByCategory('${cat.name}')">
+                    <span class="category-icon">${cat.icon}</span>
+                    <h4 class="category-title">${cat.name}</h4>
+                    <span class="category-count">${cat.count} Titles</span>
+                </div>
+            `).join('');
+        }
+
+        function renderCategoryFilters() {
+            const container = document.getElementById('categoryFilters');
+            const categories = ['All', ...categoriesData.map(c => c.name)];
+            container.innerHTML = categories.map(cat => `
+                <button class="filter-btn ${cat === selectedCategory ? 'active' : ''}" onclick="filterByCategory('${cat}')">${cat}</button>
+            `).join('');
+        }
+
+        function renderBooks() {
+            const container = document.getElementById('featuredBooksGrid');
+            let filtered = booksData.filter(book => {
+                const matchCategory = selectedCategory === 'All' || book.category.toLowerCase() === selectedCategory.toLowerCase();
+                let matchPrice = true;
+                if (selectedPrice === 'under1000') matchPrice = book.price < 1000;
+                else if (selectedPrice === '1000to2000') matchPrice = book.price >= 1000 && book.price <= 2000;
+                else if (selectedPrice === 'above2000') matchPrice = book.price > 2000;
+
+                let matchRating = true;
+                if (selectedRating !== 'all') matchRating = book.rating >= parseFloat(selectedRating);
+
+                return matchCategory && matchPrice && matchRating;
+            });
+
+            document.getElementById('resultsCount').innerText = `Showing ${filtered.length} books`;
+
+            if (filtered.length === 0) {
+                container.innerHTML = `<p style="grid-column: 1/-1; text-align: center; padding: 40px; color: var(--text-muted);">No books found. Try another search or filter.</p>`;
+                return;
+            }
+
+            container.innerHTML = filtered.map(book => createBookCardHTML(book)).join('');
+        }
+
+        function renderBestsellers() {
+            const container = document.getElementById('bestsellersGrid');
+            const items = booksData.filter(b => b.isBestseller).slice(0, 6);
+            container.innerHTML = items.map(book => createBookCardHTML(book, 'BESTSELLER')).join('');
+        }
+
+        function renderNewArrivals() {
+            const container = document.getElementById('newArrivalsGrid');
+            const items = booksData.filter(b => b.isNew).slice(0, 6);
+            container.innerHTML = items.map(book => createBookCardHTML(book, 'NEW')).join('');
+        }
+
+        function createBookCardHTML(book, badgeText) {
+            const discount = Math.round(((book.oldPrice - book.price) / book.oldPrice) * 100);
+            return `
+                <div class="book-card">
+                    <div class="book-cover-wrap">
+                        ${badgeText ? `<span class="badge badge-discount book-badge">${badgeText}</span>` : `<span class="badge badge-discount book-badge">-${discount}%</span>`}
+                        <img src="${book.img}" alt="${book.title}" class="book-cover" loading="lazy">
+                    </div>
+                    <div class="book-details">
+                        <span class="book-category">${book.category}</span>
+                        <h3 class="book-title">${book.title}</h3>
+                        <p class="book-author">${book.author}</p>
+                        <div class="book-rating">★ ${book.rating}</div>
+                        <div class="book-price-wrap">
+                            <span class="book-price">Rs. ${book.price.toLocaleString()}</span>
+                            <span class="book-old-price">Rs. ${book.oldPrice.toLocaleString()}</span>
+                        </div>
+                        <div class="book-actions">
+                            <button class="btn btn-secondary" onclick="openBookModal(${book.id})">Details</button>
+                            <button class="btn btn-primary" onclick="addToCart(${book.id})">Cart</button>
+                        </div>
+                        <a href="https://wa.me/923472842874?text=Hello%20Book%20Haven,%20I%20would%20like%20to%20order%20${encodeURIComponent(book.title)}.%20Please%20share%20availability%20and%20delivery%20details." target="_blank" class="btn btn-whatsapp" style="margin-top: 6px; font-size: 0.75rem; padding: 6px;">Order on WhatsApp</a>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderGallery() {
+            const container = document.getElementById('galleryGrid');
+            container.innerHTML = booksData.map(book => `
+                <div class="gallery-item" onclick="openLightbox('${book.img}')">
+                    <img src="${book.img}" alt="${book.title}" loading="lazy">
+                </div>
+            `).join('');
+        }
+
+        function renderFAQ() {
+            const container = document.getElementById('faqAccordion');
+            container.innerHTML = faqData.map((item, index) => `
+                <div class="faq-item">
+                    <button class="faq-header" onclick="toggleFAQ(${index})">
+                        <span>${item.q}</span>
+                        <span>+</span>
+                    </button>
+                    <div class="faq-body">${item.a}</div>
+                </div>
+            `).join('');
+        }
+
+        // Filters & Search
+        function filterByCategory(cat) {
+            selectedCategory = cat;
+            renderCategoryFilters();
+            renderBooks();
+            document.getElementById('books').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function setPriceFilter(val, btn) {
+            selectedPrice = val;
+            btn.parentElement.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            renderBooks();
+        }
+
+        function setRatingFilter(val, btn) {
+            selectedRating = val;
+            btn.parentElement.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            renderBooks();
+        }
+
+        function handleSearch() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const container = document.getElementById('featuredBooksGrid');
+            const filtered = booksData.filter(b => 
+                b.title.toLowerCase().includes(query) ||
+                b.author.toLowerCase().includes(query) ||
+                b.category.toLowerCase().includes(query)
+            );
+
+            document.getElementById('resultsCount').innerText = `Search Results: ${filtered.length}`;
+            if (filtered.length === 0) {
+                container.innerHTML = `<p style="grid-column: 1/-1; text-align: center; padding: 40px; color: var(--text-muted);">No books found. Try another search.</p>`;
+            } else {
+                container.innerHTML = filtered.map(book => createBookCardHTML(book)).join('');
+            }
+        }
+
+        function handleSort() {
+            const val = document.getElementById('sortSelect').value;
+            if (val === 'low-high') booksData.sort((a,b) => a.price - b.price);
+            else if (val === 'high-low') booksData.sort((a,b) => b.price - a.price);
+            else if (val === 'rating') booksData.sort((a,b) => b.rating - a.rating);
+            renderBooks();
+        }
+
+        // Modals
+        function openBookModal(id) {
+            const book = booksData.find(b => b.id === id);
+            const container = document.getElementById('modalBody');
+            container.innerHTML = `
+                <div style="display: grid; grid-template-columns: 200px 1fr; gap: 24px;">
+                    <img src="${book.img}" alt="${book.title}" style="border-radius: var(--radius-md); width: 100%;">
+                    <div>
+                        <span class="book-category">${book.category}</span>
+                        <h2 style="color: var(--brown-primary); margin-bottom: 4px;">${book.title}</h2>
+                        <p style="color: var(--text-muted); margin-bottom: 12px;">By ${book.author}</p>
+                        <div style="font-size: 1.25rem; font-weight: 700; margin-bottom: 16px;">Rs. ${book.price.toLocaleString()} <span style="text-decoration: line-through; font-size: 0.9rem; color: var(--text-muted);">Rs. ${book.oldPrice.toLocaleString()}</span></div>
+                        
+                        <h4>About This Book</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 16px;">A well-crafted publication providing engaging content and key insights suited for enthusiastic readers.</p>
+                        
+                        <h4>What You'll Learn</h4>
+                        <ul style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 16px; list-style: disc; padding-left: 20px;">
+                            <li>Core principles and foundation concepts.</li>
+                            <li>Practical practical insights for application.</li>
+                            <li>Critical perspective & unique understanding.</li>
+                        </ul>
+
+                        <div style="background: var(--bg-cream); padding: 12px; border-radius: var(--radius-sm); font-size: 0.8rem; margin-bottom: 16px;">
+                            <strong>Pages:</strong> ${book.pages} | <strong>Language:</strong> ${book.language} | <strong>Format:</strong> ${book.format} | <strong>Publisher:</strong> ${book.publisher}
+                        </div>
+
+                        <div style="display: flex; gap: 12px;">
+                            <button class="btn btn-primary" onclick="addToCart(${book.id}); closeModal('bookModal');">Add to Cart</button>
+                            <a href="https://wa.me/923472842874?text=Hello%20Book%20Haven,%20I%20would%20like%20to%20order%20${encodeURIComponent(book.title)}." target="_blank" class="btn btn-whatsapp">Order on WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+            `;
+            document.getElementById('bookModal').classList.add('active');
+        }
+
+        function closeModal(id) {
+            document.getElementById(id).classList.remove('active');
+        }
+
+        // Cart Functionality
+        function addToCart(id) {
+            const item = cart.find(i => i.id === id);
+            if (item) {
+                item.qty += 1;
+            } else {
+                const book = booksData.find(b => b.id === id);
+                cart.push({ ...book, qty: 1 });
+            }
+            saveCart();
+            updateCartUI();
+            toggleCart(true);
+        }
+
+        function updateCartQty(id, delta) {
+            const item = cart.find(i => i.id === id);
+            if (item) {
+                item.qty += delta;
+                if (item.qty <= 0) cart = cart.filter(i => i.id !== id);
+            }
+            saveCart();
+            updateCartUI();
+        }
+
+        function clearCart() {
+            cart = [];
+            saveCart();
+            updateCartUI();
+        }
+
+        function saveCart() {
+            localStorage.setItem('bookHavenCart', JSON.stringify(cart));
+        }
+
+        function updateCartUI() {
+            const count = cart.reduce((acc, i) => acc + i.qty, 0);
+            document.getElementById('cartCount').innerText = count;
+
+            const container = document.getElementById('cartItemsContainer');
+            if (cart.length === 0) {
+                container.innerHTML = `<p style="text-align: center; color: var(--text-muted); padding: 20px;">Your cart is empty.</p>`;
+            } else {
+                container.innerHTML = cart.map(item => `
+                    <div class="cart-item">
+                        <img src="${item.img}" class="cart-item-img" alt="${item.title}">
+                        <div class="cart-item-info">
+                            <h4 style="font-size: 0.9rem;">${item.title}</h4>
+                            <span style="font-size: 0.8rem; color: var(--text-muted);">Rs. ${item.price}</span>
+                            <div style="display: flex; align-items: center; gap: 8px; margin-top: 4px;">
+                                <button onclick="updateCartQty(${item.id}, -1)" style="padding: 2px 6px;">-</button>
+                                <span style="font-size: 0.85rem;">${item.qty}</span>
+                                <button onclick="updateCartQty(${item.id}, 1)" style="padding: 2px 6px;">+</button>
+                            </div>
+                        </div>
+                        <button onclick="updateCartQty(${item.id}, -${item.qty})" style="border:none; background:none; cursor:pointer; color:red;">&times;</button>
+                    </div>
+                `).join('');
+            }
+
+            const subtotal = cart.reduce((acc, i) => acc + (i.price * i.qty), 0);
+            document.getElementById('cartSubtotal').innerText = `Rs. ${subtotal.toLocaleString()}`;
+        }
+
+        function toggleCart(forceOpen = false) {
+            const drawer = document.getElementById('cartDrawer');
+            if (forceOpen) drawer.classList.add('active');
+            else drawer.classList.toggle('active');
+        }
+
+        // Checkout & WhatsApp Generation
+        function openCheckout() {
+            if (cart.length === 0) {
+                alert("Your cart is empty.");
+                return;
+            }
+            toggleCart(false);
+            const subtotal = cart.reduce((acc, i) => acc + (i.price * i.qty), 0);
+            document.getElementById('checkoutSubtotal').innerText = `Rs. ${subtotal.toLocaleString()}`;
+            document.getElementById('checkoutTotal').innerText = `Rs. ${(subtotal + 200).toLocaleString()}`;
+            document.getElementById('checkoutModal').classList.add('active');
+        }
+
+        function handleCheckout(e) {
+            e.preventDefault();
+            const name = document.getElementById('custName').value;
+            const phone = document.getElementById('custPhone').value;
+            const address = document.getElementById('custAddress').value;
+            const city = document.getElementById('custCity').value;
+            const notes = document.getElementById('custNotes').value;
+
+            const subtotal = cart.reduce((acc, i) => acc + (i.price * i.qty), 0);
+            const total = subtotal + 200;
+
+            let itemsList = cart.map(i => `- ${i.title} (x${i.qty}): Rs. ${i.price * i.qty}`).join('%0A');
+
+            let message = `*New Order - Book Haven*%0A%0A` +
+                `*Customer Name:* ${encodeURIComponent(name)}%0A` +
+                `*Phone:* ${encodeURIComponent(phone)}%0A` +
+                `*Address:* ${encodeURIComponent(address)}, ${encodeURIComponent(city)}%0A` +
+                `*Notes:* ${encodeURIComponent(notes)}%0A%0A` +
+                `*Selected Books:*%0A${itemsList}%0A%0A` +
+                `*Subtotal:* Rs. ${subtotal}%0A` +
+                `*Delivery:* Rs. 200%0A` +
+                `*Total:* Rs. ${total}`;
+
+            window.open(`https://wa.me/923472842874?text=${message}`, '_blank');
+            closeModal('checkoutModal');
+            clearCart();
+        }
+
+        // FAQ Accordion Toggle
+        function toggleFAQ(index) {
+            const items = document.querySelectorAll('.faq-item');
+            items[index].classList.toggle('active');
+        }
+
+        // Contact Form
+        function handleContactSubmit(e) {
+            e.preventDefault();
+            document.getElementById('contactSuccess').style.display = 'block';
+            document.getElementById('contactForm').reset();
+            setTimeout(() => {
+                document.getElementById('contactSuccess').style.display = 'none';
+            }, 4000);
+        }
+
+        // Gallery Lightbox
+        function openLightbox(src) {
+            document.getElementById('lightboxImg').src = src;
+            document.getElementById('lightbox').classList.add('active');
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+        }
+
+        // Global Navigation & Scroll Controls
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+
+        function scrollToSearch() {
+            document.querySelector('.search-section').scrollIntoView({ behavior: 'smooth' });
+            document.getElementById('searchInput').focus();
+        }
+
+        function handleScroll() {
+            const btn = document.getElementById('scrollTopBtn');
+            if (window.scrollY > 300) {
+                btn.classList.add('visible');
+            } else {
+                btn.classList.remove('visible');
+            }
+        }
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
